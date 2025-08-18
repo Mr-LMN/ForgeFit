@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>ForgeFit — The Blind PT</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="brand">
+      <img src="assets/brand/logo-small.png" alt="The Blind PT logo">
+      <div>
+        <h1>ForgeFit — The Blind PT</h1>
+        <div class="muted">12‑Week Plan • Olympic‑Lift Skill • HIIT Generator (PWA)</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid controls">
+      <div class="card range">
+        <label for="week">Week</label>
+        <input id="week" type="range" min="1" max="12" value="1" style="width:100%">
+        <div id="weekVal" class="val">Week 1 — Phase 1</div>
+      </div>
+      <div class="card">
+        <div class="sec-title">Day</div>
+        <div class="day-buttons">
+          <button class="btn day-btn active">D1</button>
+          <button class="btn day-btn">D2</button>
+          <button class="btn day-btn">D3</button>
+          <button class="btn day-btn">D4</button>
+        </div>
+        <div class="muted" style="margin-top:6px">4 sessions/week • tap to switch</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="sec-title">Equipment</div>
+      <div class="toggle-wrap">
+        <button id="eq-airbike" class="toggle on">AirBike</button>
+        <button id="eq-sled" class="toggle on">Sled</button>
+        <button id="eq-wallball" class="toggle on">Wall Ball</button>
+        <button id="eq-powerbag" class="toggle on">Powerbag</button>
+        <button id="eq-ropes" class="toggle on">Battle Ropes</button>
+        <button id="eq-ski" class="toggle on">SkiErg</button>
+        <button id="eq-kb" class="toggle on">Kettlebells</button>
+        <button id="eq-rope" class="toggle on">Skipping Rope</button>
+      </div>
+      <div class="hint">Toggle what you've got today — HIIT generator will adapt.</div>
+    </div>
+
+    <div id="session"></div>
+
+    <div class="grid" style="grid-template-columns: 1fr 1fr">
+      <button id="genHIIT" class="btn action">🎲 Generate HIIT Workout</button>
+      <button id="export" class="btn">Export Logs (CSV)</button>
+    </div>
+
+    <div id="hiitResult"></div>
+
+    <div class="card">
+      <div class="sec-title">Install</div>
+      <div class="hint">Install to your home screen for full‑screen, offline use.</div>
+      <button id="install" class="btn" style="display:none;margin-top:8px">Install App</button>
+    </div>
+
+    <div class="card">
+      <div class="sec-title">About</div>
+      <div class="hint">Built for <b>The Blind PT</b>. This PWA runs offline, logs your lifts locally, and exports to CSV. Host it on Netlify/Vercel/GitHub Pages for instant updates.</div>
+      <a class="simple" href="https://github.com/new" target="_blank" rel="noopener">Create a GitHub repo</a>
+    </div>
+  </div>
+
+  <script> if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); } </script>
+  <script src="app.js"></script>
+</body>
+</html>
