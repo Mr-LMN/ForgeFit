@@ -1,16 +1,12 @@
-
-<!octype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <title>ForgeFit — The Blind PT</title>
   <link rel="manifest" href="manifest.webmanifest">
-  <meta na"teme-color" content="#0a0a0a">
-     <link rel="stylesheet" href="src/css/styles.css">
-
-
-
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
   <header class="header">
@@ -24,11 +20,12 @@
   </header>
 
   <div class="container">
+    <!-- Week and day selectors -->
     <div class="grid controls">
       <div class="card range">
         <label for="week">Week</label>
         <input id="week" type="range" min="1" max="12" value="1" style="width:100%">
-        <div id="weekVal" class="val">Week 1 — Phase 1</div>
+        <div id="weekVal" class="val">Week 1 — Phase 1</div>
       </div>
       <div class="card">
         <div class="sec-title">Day</div>
@@ -42,6 +39,7 @@
       </div>
     </div>
 
+    <!-- Equipment toggles -->
     <div class="card">
       <div class="sec-title">Equipment</div>
       <div class="toggle-wrap">
@@ -54,32 +52,41 @@
         <button id="eq-kb" class="toggle on">Kettlebells</button>
         <button id="eq-rope" class="toggle on">Skipping Rope</button>
       </div>
-      <div class="hint">Toggle what you've got today — HIIT generator will adapt.</div>
+      <div class="hint">Toggle what you've got today — HIIT generator will adapt.</div>
     </div>
 
+    <!-- Session display -->
     <div id="session"></div>
 
-    <div class="grid" style="grid-template-columns: 1fr 1fr">
-      <button id="genHIIT" class="btn action">🎲 Generate HIIT Workout</button>
+    <!-- Actions row -->
+    <div class="grid" style="grid-template-columns:1fr 1fr">
+      <button id="genHIIT" class="btn action">🎲 Generate HIIT Workout</button>
       <button id="export" class="btn">Export Logs (CSV)</button>
     </div>
 
+    <!-- Placeholder for random HIIT output -->
     <div id="hiitResult"></div>
 
+    <!-- Install prompt -->
     <div class="card">
       <div class="sec-title">Install</div>
       <div class="hint">Install to your home screen for full‑screen, offline use.</div>
-      <button id="install" class="btn" style="display:none;margin-top:8px">Install App</button>
+      <button id="install" class="btn" style="display:none;margin-top:8px">Install App</button>
     </div>
 
+    <!-- About section -->
     <div class="card">
       <div class="sec-title">About</div>
-      <div class="hint">Built for <b>The Blind PT</b>. This PWA runs offline, logs your lifts locally, and exports to CSV. Host it on Netlify/Vercel/GitHub Pages for instant updates.</div>
+      <div class="hint">Built for <b>The Blind PT</b>. This PWA runs offline, logs your lifts locally, and exports to CSV. Host it on Netlify/Vercel/GitHub Pages for instant updates.</div>
       <a class="simple" href="https://github.com/new" target="_blank" rel="noopener">Create a GitHub repo</a>
     </div>
   </div>
 
-  <script> if('serviceWorker' in navigator){ navigator.serviceWorker.register('./sw.js'); } </script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
   <script type="module" src="src/js/app.js"></script>
 </body>
 </html>
