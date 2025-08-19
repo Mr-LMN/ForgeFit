@@ -2,28 +2,25 @@
 const $ = (s, el=document) => el.querySelector(s);
 
 const templates = [
-  { name:'Tabata Classic', build:(pool)=> ({desc:'8 rounds • 20s ON / 10s OFF', work:[{m:pool(1),reps:'max reps'}], rounds:8, on:20, off:10}) },
-  { name:'EMOM Alternating 14′', build:(pool)=> ({desc:'Every minute on the minute, 14 minutes (alt movements)', work:[{m:pool(1),reps:'8–15'},{m:pool(1),reps:'8–15'}], rounds:7, emom:true}) },
-  { name:'30/30 x 12', build:(pool)=> ({desc:'12 rounds: 30s hard / 30s easy', mono: pool(1), rounds:12, on:30, off:30}) },
-  { name:'Ladder 10→1', build:(pool)=> ({desc:'For time: 10‑1 ladder', chipper:[pool(1), pool(1)], scheme:'10‑9‑…‑1'}) },
-  { name:'3RFT Mixed', build:(pool)=> ({desc:'3 Rounds For Time', rft:3, items:[{m:pool(1),reps:'12'},{m:pool(1),reps:'200 m'},{m:pool(1),reps:'12'}]}) },
-  { name:'Ropes & Rows', build:(pool)=> ({desc:'Intervals pairing ropes and monostructural', work:[{m:'Battle Ropes (30s)',reps:'hard'},{m:'SkiErg (30s)',reps:'moderate'}], rounds:10}) },
+  { name:'Greenfield 30/90', build:(pool)=> ({desc:'Ben Greenfield style engine work', mono: pool(1), rounds:10, on:30, off:90}) },
+  { name:'Philly EMOM', build:(pool)=> ({desc:'Marcus Philly inspired EMOM', work:[{m:pool(1),reps:'8–12'},{m:pool(1),reps:'8–12'}], rounds:10, emom:true}) },
+  { name:'Chek Pyramid', build:(pool)=> ({desc:'Paul Chek primal pyramid', chipper:[pool(1),pool(1),pool(1)], scheme:'1‑2‑3‑4‑5‑4‑3‑2‑1'}) },
+  { name:'Classic Chipper', build:(pool)=> ({desc:'For time chipper', chipper:[pool(1),pool(1),pool(1),pool(1)], scheme:'50‑40‑30‑20'}) },
+  { name:'21‑15‑9 WOD', build:(pool)=> ({desc:'CrossFit 21‑15‑9 for time', items:[{m:pool(1),reps:'21'},{m:pool(1),reps:'15'},{m:pool(1),reps:'9'}], rft:1}) }
 ];
 
 function movementPool(){
   const has = id => document.querySelector(`#eq-${id}`)?.classList.contains('on');
   const list = [];
+  if(has('bw')) list.push('Burpees','Push‑ups','Sit‑ups / V‑ups','Air Squats','Box Step‑ups (20–24")');
   if(has('airbike')) list.push('AirBike calories');
   if(has('ski')) list.push('SkiErg cals');
-  list.push('Burpees','Push‑ups','Sit‑ups / V‑ups');
   if(has('wallball')) list.push('Wall Balls (9/10 ft)');
-  list.push('KB Swings (Russian)');
+  if(has('kb')) list.push('KB Swings (Russian)','DB Snatch (alt)','KB Clean + Press (light)');
   if(has('powerbag')) list.push('Powerbag Clean to Shoulder');
   if(has('sled')) list.push('Sled Push/Drag (20–30 m)');
   if(has('ropes')) list.push('Battle Ropes (30s)');
-  if(has('kb')) list.push('DB Snatch (alt)','KB Clean + Press (light)');
   if(has('rope')) list.push('Jump Rope (DU/SU)');
-  list.push('Box Step‑ups (20–24")');
   return list;
 }
 
