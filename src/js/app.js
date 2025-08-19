@@ -8,7 +8,7 @@ const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const state = {
   week: 1,
   day: "D1",
-  eq: { airbike:true, sled:true, wallball:true, powerbag:true, ropes:true, skierg:true, kb:true, rope:true }
+  eq: { bw:true, airbike:true, sled:true, wallball:true, powerbag:true, ropes:true, skierg:true, kb:true, rope:true }
 };
 
 const PLAN = buildPlan();
@@ -42,6 +42,15 @@ export function render(){
   const todays = PLAN[state.week][state.day];
   wrap.innerHTML = todays.map((ex,i)=>exerciseRow(state.week, state.day, ex, i)).join("");
   bindRowEvents();
+
+  const isHIIT = state.day === "D3";
+  const eqCard = $("#eq-card");
+  const hiitBtn = $("#genHIIT");
+  const actions = $("#actionsRow");
+  if(eqCard) eqCard.style.display = isHIIT ? "block" : "none";
+  if(hiitBtn) hiitBtn.style.display = isHIIT ? "block" : "none";
+  if(actions) actions.style.gridTemplateColumns = isHIIT ? "1fr 1fr" : "1fr";
+  if(!isHIIT){ const out=$("#hiitResult"); if(out) out.innerHTML=""; }
 }
 
 function phaseOf(w){

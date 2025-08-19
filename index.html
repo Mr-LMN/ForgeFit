@@ -6,7 +6,7 @@
   <title>ForgeFit — The Blind PT</title>
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0a0a0a">
-  <link rel="stylesheet" href="src/css/styles.css?v=1">
+  <link rel="stylesheet" href="src/css/styles.css?v=2">
 </head>
 <body>
   <header class="header">
@@ -40,9 +40,10 @@
     </div>
 
     <!-- Equipment toggles -->
-    <div class="card">
+    <div id="eq-card" class="card" style="display:none">
       <div class="sec-title">Equipment</div>
       <div class="toggle-wrap">
+        <button id="eq-bw" class="toggle on">Bodyweight</button>
         <button id="eq-airbike" class="toggle on">AirBike</button>
         <button id="eq-sled" class="toggle on">Sled</button>
         <button id="eq-wallball" class="toggle on">Wall Ball</button>
@@ -59,8 +60,8 @@
     <div id="session"></div>
 
     <!-- Actions row -->
-    <div class="grid" style="grid-template-columns:1fr 1fr">
-      <button id="genHIIT" class="btn action">🎲 Generate HIIT Workout</button>
+    <div id="actionsRow" class="grid" style="grid-template-columns:1fr 1fr">
+      <button id="genHIIT" class="btn action" style="display:none">🎲 Generate HIIT Workout</button>
       <button id="export" class="btn">Export Logs (CSV)</button>
     </div>
 
@@ -91,7 +92,7 @@
   -->
   <script type="module" src="src/js/plan.js?v=1"></script>
   <script type="module" src="src/js/storage.js?v=1"></script>
-  <script type="module" src="src/js/hiit.js?v=1"></script>
-  <script type="module" src="src/js/app.js?v=1"></script>
+  <script type="module" src="src/js/hiit.js?v=2"></script>
+  <script type="module" src="src/js/app.js?v=2"></script>
 </body>
 </html>
