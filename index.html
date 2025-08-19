@@ -6,7 +6,7 @@
   <title>ForgeFit — The Blind PT</title>
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#0a0a0a">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="src/css/styles.css?v=1">
 </head>
 <body>
   <header class="header">
@@ -82,12 +82,16 @@
     </div>
   </div>
 
+  <!--
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('./sw.js');
     }
   </script>
-  <script type="module" src="js/app.js"></script>
-  <script type="module" src="src/js/hotfix.js?v=7"></script>
+  -->
+  <script type="module" src="src/js/plan.js?v=1"></script>
+  <script type="module" src="src/js/storage.js?v=1"></script>
+  <script type="module" src="src/js/hiit.js?v=1"></script>
+  <script type="module" src="src/js/app.js?v=1"></script>
 </body>
 </html>
